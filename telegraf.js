@@ -125,9 +125,10 @@ class Telegraf extends Composer {
 
   stop (cb = noop) {
     this.polling.started = false
+    this.polling.stopCallback();
     if (this.webhookServer) {
       this.webhookServer.close(cb)
-    } else {
+    } else {s
       cb()
     }
     return this
